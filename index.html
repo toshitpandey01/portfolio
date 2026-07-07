@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#020817" />
+  <title>Toshit Pandey — ML Enthusiast & Data Scientist</title>
+  <meta name="description" content="Portfolio of Toshit Pandey — ML, Data Science, and Python Developer." />
+  <meta name="author" content="Toshit Pandey" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Toshit Pandey — ML Enthusiast & Py Dev" />
+  <meta property="og:description" content="Portfolio of Toshit Pandey — ML, Data Science, and Python Developer." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Toshit Pandey — ML Enthusiast & Data Scientist" />
+  <meta name="twitter:description" content="Portfolio of Toshit Pandey — ML, Data Science, and Python Developer." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%237c3aed'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%2306b6d4'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<!-- Skip link for keyboard users -->
+<a class="skip-link" href="#home">Skip to main content</a>
+
+<!-- Custom cursors (desktop only, decorative) -->
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+
+<!-- Background cosmos canvas (decorative) -->
+<canvas id="cosmos-canvas" aria-hidden="true"></canvas>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<header class="nav-wrap">
+  <nav class="nav container" aria-label="Primary">
+    <a class="brand" href="#home" aria-label="Toshit Pandey — Home">
+      <span class="brand-dot" aria-hidden="true"></span>
+      Toshit Pandey
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-pills">
+      <a class="pill" id="cvLinkDesktop" href="assets/resume.pdf" target="_blank" rel="noopener" aria-label="Download CV (PDF)">CV</a>
+      <a class="pill" href="https://www.linkedin.com/in/toshit-pandey-0036a035b" target="_blank" rel="noopener" aria-label="LinkedIn Profile (opens in new tab)">LinkedIn</a>
+    </div>
+    <button class="ham" id="hamBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+  <a class="pill" id="cvLinkMobile" href="assets/resume.pdf" target="_blank" rel="noopener">CV</a>
+  <a class="pill" href="https://www.linkedin.com/in/toshit-pandey-0036a035b" target="_blank" rel="noopener">LinkedIn</a>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════ -->
+<main id="main">
+<section id="home" aria-labelledby="hero-title">
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-tag"><span class="hero-tag-dot" aria-hidden="true"></span> Master of Computer Applications</div>
+        <h1 class="hero-title" id="hero-title">
+          Hi, I'm<br>
+          <span class="name-accent">Toshit Pandey</span>
+        </h1>
+        <div class="typewriter-wrap" aria-live="polite"><span id="typewriter"></span></div>
+        <p class="hero-desc">
+          An MCA graduate with a strong focus on Machine Learning, passionate about building data-driven solutions from preprocessing pipelines to production-ready applications that solve real-world problems.
+        </p>
+        <div class="hero-btns">
+          <a class="btn-primary" href="#projects">See Projects</a>
+          <a class="btn-ghost"   href="mailto:toshitpandey01@gmail.com">Say Hello →</a>
+        </div>
+        <div class="hero-stats" role="list">
+          <div class="stat" role="listitem"><span class="stat-num">3+</span><span class="stat-label">Projects Shipped</span></div>
+          <div class="stat" role="listitem"><span class="stat-num">ML</span><span class="stat-label">Core Focus</span></div>
+          <div class="stat" role="listitem"><span class="stat-num">∞</span><span class="stat-label">Curiosity</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Neural Network Visualisation -->
+      <div class="hero-visual">
+        <canvas id="neural-canvas" aria-hidden="true"></canvas>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="section-eyebrow">// about_me.py</p>
+        <h2 class="section-title" id="about-title">Building at the<br><span>intersection of data<br>and intelligence</span></h2>
+        <div class="section-rule" aria-hidden="true"></div>
+        <p>
+          I'm an MCA graduate with a strong focus on Machine Learning, with hands-on experience in Python and SQL for data analysis and model development.
+        </p>
+        <p>
+          I'm interested in the complete ML pipeline — data preprocessing, feature engineering, model training, and evaluation. My goal is to grow as a machine learning professional and contribute to impactful, real-world solutions.
+        </p>
+        <p>
+          Quick learner, problem-solving mindset, and a genuine love for data-driven thinking.
+        </p>
+      </div>
+
+      <div class="about-cards reveal" style="transition-delay:.15s">
+        <div class="about-card">
+          <div class="about-card-icon" aria-hidden="true">🧠</div>
+          <h3 class="about-card-title">Machine Learning</h3>
+          <p class="about-card-text">scikit-learn pipelines, Decision Trees, feature engineering, model evaluation</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon" aria-hidden="true">📊</div>
+          <h3 class="about-card-title">Data Science</h3>
+          <p class="about-card-text">Pandas, NumPy, exploratory analysis, data preprocessing & visualisation</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon" aria-hidden="true">🌐</div>
+          <h3 class="about-card-title">Web & App Dev</h3>
+          <p class="about-card-text">Streamlit, Flask, responsive frontends with HTML · CSS</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon" aria-hidden="true">🗄️</div>
+          <h3 class="about-card-title">Data & Backend</h3>
+          <p class="about-card-text">MySQL, SQLite, Python scripting, API integration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ═══════════════════════════════════════ -->
+<section id="projects" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">// projects[]</p>
+      <h2 class="section-title" id="projects-title">Things I've <span>built & shipped</span></h2>
+      <div class="section-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Stress Detection -->
+      <article class="project-card reveal" style="transition-delay:.1s">
+        <span class="project-badge badge-ml" aria-label="Machine Learning and AI project">⬡ ML · AI</span>
+        <canvas class="project-vis" id="vis-stress" aria-hidden="true"></canvas>
+        <h3 class="project-title">StressGuard</h3>
+        <p class="project-desc">
+          ML-powered stress detection and mental wellness platform with role-based clinical workflows, real-time doctor-patient communication, and appointment management.
+        </p>
+        <ul class="project-tech" aria-label="Technologies used">
+          <li class="tech-tag">Python</li><li class="tech-tag">scikit-learn</li><li class="tech-tag">Streamlit</li><li class="tech-tag">SQLite</li><li class="tech-tag">Decision Tree</li>
+        </ul>
+        <div class="project-links">
+          <a class="proj-link" href="https://github.com/toshitpandey01/StressGuard" target="_blank" rel="noopener" aria-label="View StressGuard repository on GitHub (opens in new tab)">
+            <svg class="gh-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.235-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803a11.5 11.5 0 0 1 3.003.404c2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.234 1.911 1.234 3.221 0 4.609-2.805 5.625-5.478 5.92.43.372.815 1.102.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.697.825.578C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12Z"/></svg>
+            View Repo →
+          </a>
+        </div>
+      </article>
+
+      <!-- Weather App -->
+      <article class="project-card reveal" style="transition-delay:.2s">
+        <span class="project-badge badge-web" aria-label="Web and API project">◈ WEB · API</span>
+        <canvas class="project-vis" id="vis-weather" aria-hidden="true"></canvas>
+        <h3 class="project-title">Weather App</h3>
+        <p class="project-desc">
+          A real-time weather information app for any city using the OpenWeatherMap API. Fetches live temperature and weather descriptions dynamically with a clean, responsive interface.
+        </p>
+        <ul class="project-tech" aria-label="Technologies used">
+          <li class="tech-tag">HTML</li><li class="tech-tag">CSS</li><li class="tech-tag">JavaScript</li><li class="tech-tag">Python</li><li class="tech-tag">OpenWeatherMap API</li>
+        </ul>
+        <div class="project-links">
+          <a class="proj-link" href="https://github.com/toshitpandey01/weather-app" target="_blank" rel="noopener" aria-label="View Weather App repository on GitHub (opens in new tab)">
+            <svg class="gh-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.235-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803a11.5 11.5 0 0 1 3.003.404c2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.234 1.911 1.234 3.221 0 4.609-2.805 5.625-5.478 5.92.43.372.815 1.102.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.697.825.578C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12Z"/></svg>
+            View Repo →
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ════════════════════════════════════════ -->
+<section id="skills" aria-labelledby="skills-title">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">// skills.json</p>
+      <h2 class="section-title" id="skills-title">My <span>tech stack</span></h2>
+      <div class="section-rule" aria-hidden="true"></div>
+    </div>
+    <div class="skills-layout">
+
+      <!-- Skill bars -->
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="skill-group">
+          <h3 class="skill-group-label">Machine Learning & Data</h3>
+          <div class="skill-bars">
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Python / Pandas / NumPy</span><span class="skill-pct">90%</span></div><div class="skill-bar" role="progressbar" aria-label="Python / Pandas / NumPy proficiency" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" data-w=".90"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">scikit-learn / ML Pipelines</span><span class="skill-pct">75%</span></div><div class="skill-bar" role="progressbar" aria-label="scikit-learn / ML Pipelines proficiency" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" data-w=".75"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Data Preprocessing & EDA</span><span class="skill-pct">85%</span></div><div class="skill-bar" role="progressbar" aria-label="Data Preprocessing and EDA proficiency" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" data-w=".85"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-label">Web & Frameworks</h3>
+          <div class="skill-bars">
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">HTML · CSS · JavaScript</span><span class="skill-pct">80%</span></div><div class="skill-bar" role="progressbar" aria-label="HTML CSS JavaScript proficiency" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" data-w=".80"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Streamlit / Flask</span><span class="skill-pct">75%</span></div><div class="skill-bar" role="progressbar" aria-label="Streamlit / Flask proficiency" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" data-w=".75"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3 class="skill-group-label">Databases & Tools</h3>
+          <div class="skill-bars">
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">MySQL / SQLite</span><span class="skill-pct">75%</span></div><div class="skill-bar" role="progressbar" aria-label="MySQL / SQLite proficiency" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" data-w=".75"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Microsoft Office Suite</span><span class="skill-pct">80%</span></div><div class="skill-bar" role="progressbar" aria-label="Microsoft Office Suite proficiency" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" data-w=".80"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill node graph -->
+      <div class="reveal skill-graph-wrap" style="transition-delay:.2s">
+        <canvas id="skill-graph" aria-label="Skills visualised as a neural network graph" role="img"></canvas>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">// contact.send()</p>
+      <h2 class="section-title" id="contact-title">Let's <span>work together</span></h2>
+      <div class="section-rule" aria-hidden="true"></div>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info reveal" style="transition-delay:.1s">
+        <p>
+          Whether you want to collaborate on an ML project, discuss data science ideas, or just say hello — my inbox is always open. I reply within a day.
+        </p>
+        <div class="contact-socials">
+          <a class="social-link" href="mailto:toshitpandey01@gmail.com" aria-label="Send an email to toshitpandey01@gmail.com">
+            <span class="social-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            </span>
+            <span>toshitpandey01@gmail.com</span>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/toshit-pandey-0036a035b" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in new tab)">
+            <span class="social-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.063 2.063 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </span>
+            <span>LinkedIn Profile</span>
+          </a>
+          <a class="social-link" href="https://github.com/toshitpandey01" target="_blank" rel="noopener" aria-label="GitHub profile (opens in new tab)">
+            <span class="social-icon" aria-hidden="true">
+              <svg class="gh-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.235-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803a11.5 11.5 0 0 1 3.003.404c2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.234 1.911 1.234 3.221 0 4.609-2.805 5.625-5.478 5.92.43.372.815 1.102.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.697.825.578C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12Z"/></svg>
+            </span>
+            <span>github.com/toshitpandey01</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal" style="transition-delay:.2s">
+        <!-- Formspree-ready form. Replace YOUR_FORM_ID with your Formspree endpoint to receive emails.
+             Until then it works as a friendly local-only acknowledgement. -->
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate aria-label="Contact form">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" id="name" name="name" type="text" autocomplete="name" required aria-required="true"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" type="email" autocomplete="email" required aria-required="true"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" name="message" required aria-required="true"></textarea>
+          </div>
+          <button class="form-submit" type="submit">Send :)</button>
+          <p class="form-msg" id="formMsg" aria-live="polite" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">Toshit Pandey</span>
+      <span class="footer-text">© <span id="year"></span> All rights reserved</span>
+      <a class="footer-gh" href="https://github.com/toshitpandey01" target="_blank" rel="noopener" aria-label="GitHub profile (opens in new tab)">
+        <svg class="gh-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.468-2.381 1.235-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.5 11.5 0 0 1 12 5.803a11.5 11.5 0 0 1 3.003.404c2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.234 1.911 1.234 3.221 0 4.609-2.805 5.625-5.478 5.92.43.372.815 1.102.815 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.697.825.578C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12Z"/></svg>
+        <span class="visually-hidden">GitHub</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
