@@ -39,10 +39,6 @@
       .join("");
   }
 
-  // The site's animated starfield (cosmos-canvas) and custom cursor keep
-  // running full-time, which is unnecessary extra compositing work while
-  // someone is reading a post. Pause/hide both while the post view is open,
-  // and restore them when heading back to the list.
   function pauseBackgroundEffects() {
     const cosmos = document.getElementById("cosmos-canvas");
     if (cosmos) cosmos.style.display = "none";
