@@ -49,6 +49,7 @@ const BLOG_POSTS = [
     content: `
       <h3>My Industrial Training Experience at BSNL</h3>
       <p>During my 4-week industrial training at BSNL, I gained practical exposure to the fundamentals of telecommunication and network infrastructure. The training provided valuable insight into how modern communication systems operate and how large-scale telecom networks are deployed and maintained.</p>
+      <img src="assets/blog_images/BSNL_Certificate.jpeg" alt="Certificate">
       <p>Throughout the program, I explored key areas including telecommunication networks, switching systems, optical fiber communication (OFC), broadband infrastructure, and mobile communication technologies. I also developed a better understanding of network architecture, communication protocols, and the essential role networking technologies play in delivering reliable connectivity.</p>
       <p>One of the most valuable aspects of the training was observing real-world telecom operations, from infrastructure deployment to network maintenance and service management. This experience strengthened my interest in computer networks and provided practical knowledge that complements my academic studies while giving me a deeper appreciation of the technologies that power modern communication.</p>
     `
