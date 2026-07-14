@@ -1,7 +1,3 @@
-/* ════════════════════════════════════════════════════
-   Toshit Pandey — Portfolio Interactivity
-   Vanilla JS. No dependencies.
-   ════════════════════════════════════════════════════ */
 (() => {
   'use strict';
 
@@ -94,7 +90,7 @@
     requestAnimationFrame(tickRing);
 
     // Hover states
-    const hoverables = 'a, button, input, textarea, .project-card, .about-card, .social-link';
+    const hoverables = 'a, button, input, textarea, .project-card, .about-card, .social-link, .blog-list-link, .blog-post-back';
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest(hoverables)) {
         dot.classList.add('hovering');
@@ -135,8 +131,15 @@
         setTimeout(typeLoop, deleting ? 1400 : 350);
       }
     }
-    if (!prefersReducedMotion) typeLoop();
-    else tw.textContent = phrases[0];
+    // Note: intentionally NOT gated behind prefersReducedMotion. That flag
+    // is respected for the heavier canvas/particle effects below, but a
+    // number of desktop/laptop setups report prefers-reduced-motion: reduce
+    // even when the person never explicitly asked for it (e.g. Windows
+    // "Show animations in Windows" turned off, some remote-desktop/VM
+    // display profiles). Gating this simple text swap behind that flag was
+    // exactly why the typewriter looked "stuck" on the first phrase on
+    // desktop/laptop while working fine on mobile.
+    typeLoop();
   }
 
   /* ── Reveal on scroll (IntersectionObserver) ────── */
@@ -685,7 +688,6 @@
     requestAnimationFrame(draw);
   })();
 
-  /* ── Pause heavy animations when tab hidden ─────── */
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) document.body.classList.add('is-hidden');
     else document.body.classList.remove('is-hidden');

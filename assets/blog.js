@@ -1,10 +1,16 @@
 (function () {
   "use strict";
 
+  const listSection = document.getElementById("blogListSection");
+  const heroSection  = document.getElementById("blog-home");
   const list = document.getElementById("blogList");
-  const modalBackdrop = document.getElementById("blogModalBackdrop");
-  const modalBody = document.getElementById("blogModalBody");
-  const modalClose = document.getElementById("blogModalClose");
+
+  const postView    = document.getElementById("blogPostView");
+  const postTitle   = document.getElementById("blogPostTitle");
+  const postMeta    = document.getElementById("blogPostMeta");
+  const postContent = document.getElementById("blogPostContent");
+  const postFilename = document.getElementById("blogPostFilename");
+  const backBtn      = document.getElementById("blogPostBack");
 
   const DATE_COLORS = ["var(--cyan)", "#f5a623", "#fb7185", "#a78bfa"];
 
@@ -24,72 +30,87 @@
     list.innerHTML = sortedPosts
       .map((post, i) => `
         <li class="blog-list-item">
-          <a class="blog-list-link" href="#" data-id="${post.id}">
+          <a class="blog-list-link" href="#post/${post.id}" data-id="${post.id}">
             <span class="blog-list-title">${post.title}</span>
             <span class="blog-list-date" style="color:${DATE_COLORS[i % DATE_COLORS.length]}">${formatDate(post.date)}</span>
           </a>
         </li>
       `)
       .join("");
-
-    list.querySelectorAll(".blog-list-link").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        openPost(link.dataset.id);
-      });
-    });
-  }
-
-  function openPost(id) {
-    const post = sortedPosts.find((p) => p.id === id);
-    if (!post) return;
-    const mins = readingTime(post.content);
-    modalBody.innerHTML = `
-      <h1 class="blog-modal-title">${post.title}</h1>
-      <div class="blog-modal-meta">${formatDate(post.date)} · ~${mins} min read · ${post.tags.map((t) => "#" + t).join("  ")}</div>
-      <div class="blog-modal-content">${post.content}</div>
-    `;
-    document.getElementById("blogModalFilename").textContent = post.filename;
-    modalBackdrop.classList.add("is-open");
-    document.body.style.overflow = "hidden";
-    pauseBackgroundEffects();
-    modalClose.focus();
-  }
-
-  function closePost() {
-    modalBackdrop.classList.remove("is-open");
-    document.body.style.overflow = "";
-    resumeBackgroundEffects();
   }
 
   // The site's animated starfield (cosmos-canvas) and custom cursor keep
-  // running behind the modal's blur, which is expensive to composite every
-  // frame and makes the pointer feel laggy while reading. Pause/hide both
-  // for as long as the modal stays open, and restore them on close.
+  // running full-time, which is unnecessary extra compositing work while
+  // someone is reading a post. Pause/hide both while the post view is open,
+  // and restore them when heading back to the list.
   function pauseBackgroundEffects() {
     const cosmos = document.getElementById("cosmos-canvas");
-    const dot = document.getElementById("cursor-dot");
-    const ring = document.getElementById("cursor-ring");
     if (cosmos) cosmos.style.display = "none";
-    if (dot) dot.style.display = "none";
-    if (ring) ring.style.display = "none";
   }
   function resumeBackgroundEffects() {
     const cosmos = document.getElementById("cosmos-canvas");
-    const dot = document.getElementById("cursor-dot");
-    const ring = document.getElementById("cursor-ring");
     if (cosmos) cosmos.style.display = "";
-    if (dot) dot.style.display = "";
-    if (ring) ring.style.display = "";
   }
 
-  modalClose.addEventListener("click", closePost);
-  modalBackdrop.addEventListener("click", (e) => {
-    if (e.target === modalBackdrop) closePost();
+  function openPost(id, { pushHash = true } = {}) {
+    const post = sortedPosts.find((p) => p.id === id);
+    if (!post) { closePost({ replaceHash: true }); return; }
+
+    const mins = readingTime(post.content);
+    postTitle.textContent = post.title;
+    postMeta.textContent = `${formatDate(post.date)} · ~${mins} min read · ${post.tags.map((t) => "#" + t).join("  ")}`;
+    postContent.innerHTML = post.content;
+    postFilename.textContent = post.filename;
+    document.title = post.title + " — Toshit Pandey";
+
+    heroSection.hidden = true;
+    listSection.hidden = true;
+    postView.hidden = false;
+    pauseBackgroundEffects();
+
+    if (pushHash) {
+      history.pushState({ postId: id }, "", "#post/" + id);
+    }
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    backBtn.focus();
+  }
+
+  function closePost({ pushHash = true, replaceHash = false } = {}) {
+    postView.hidden = true;
+    heroSection.hidden = false;
+    listSection.hidden = false;
+    resumeBackgroundEffects();
+    document.title = "Blog — Toshit Pandey";
+
+    if (replaceHash) {
+      history.replaceState({}, "", "blog.html");
+    } else if (pushHash && location.hash) {
+      history.pushState({}, "", "blog.html");
+    }
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  }
+
+  function routeFromHash() {
+    const m = /^#post\/(.+)$/.exec(location.hash);
+    if (m) openPost(decodeURIComponent(m[1]), { pushHash: false });
+    else closePost({ pushHash: false });
+  }
+
+  list.addEventListener("click", (e) => {
+    const link = e.target.closest(".blog-list-link");
+    if (!link) return;
+    e.preventDefault();
+    openPost(link.dataset.id);
   });
+
+  backBtn.addEventListener("click", () => closePost());
+
+  window.addEventListener("popstate", routeFromHash);
+
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modalBackdrop.classList.contains("is-open")) closePost();
+    if (e.key === "Escape" && !postView.hidden) closePost();
   });
 
   renderList();
+  routeFromHash();
 })();

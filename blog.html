@@ -79,24 +79,30 @@
   </div>
 </section>
 
-<section aria-label="Blog posts">
+<section id="blogListSection" aria-label="Blog posts">
   <div class="container">
     <ul class="blog-list reveal" id="blogList"></ul>
   </div>
 </section>
 
-</main>
-
-<div class="blog-modal-backdrop" id="blogModalBackdrop">
-  <div class="blog-modal" role="dialog" aria-modal="true" aria-labelledby="blogModalFilename">
-    <div class="blog-modal-tab">
+<section id="blogPostView" class="blog-post-page" aria-labelledby="blogPostTitle" hidden>
+  <div class="container">
+    <button class="blog-post-back" id="blogPostBack">
+      <span aria-hidden="true">←</span> Back to blog
+    </button>
+    <div class="blog-post-tab">
       <span class="dot" aria-hidden="true"></span>
-      <span id="blogModalFilename">post.md</span>
-      <button class="blog-modal-close" id="blogModalClose" aria-label="Close">✕</button>
+      <span id="blogPostFilename">post.md</span>
     </div>
-    <div class="blog-modal-body" id="blogModalBody"></div>
+    <article>
+      <h1 class="blog-post-title" id="blogPostTitle"></h1>
+      <div class="blog-post-meta" id="blogPostMeta"></div>
+      <div class="blog-post-content" id="blogPostContent"></div>
+    </article>
   </div>
-</div>
+</section>
+
+</main>
 
 <footer>
   <canvas id="matrix-canvas" aria-hidden="true"></canvas>

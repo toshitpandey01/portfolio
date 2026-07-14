@@ -9,4 +9,3 @@ node_modules/
 .vercel
 .netlify
 assets/README.txt
-assets/blog-posts-data.js
