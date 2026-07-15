@@ -52,7 +52,7 @@ const BLOG_POSTS = [
       <p style="text-align: justify;">Participating in the institute-level selection round for Smart India Hackathon 2025</strong> was an incredible opportunity to collaborate, innovate, and solve a real-world problem. Our team, <strong>GEO-GENIUS</strong>, worked on <strong>Problem Statement ID 25139</strong> under the <strong>Disaster Management</strong> theme, where we proposed <strong>ResQ</strong>, an intelligent disaster management platform focused on improving emergency response, communication, and resource coordination during disasters.</p>
       <figure>
         <img src="assets/blog_images/1.png" alt="Project Overview">
-        <figcaption>Overview of the ResQ project, including the SIH 2025 problem statement, project theme, and solution introduction.</figcaption>
+        <figcaption>Overview of the ResQ project.</figcaption>
       </figure>
       <h3>The Problem</h3>
       <p style="text-align: justify;">Natural disasters such as floods, earthquakes, and landslides often disrupt communication infrastructure, making it difficult for people to receive emergency alerts, contact rescue teams, or locate nearby shelters. These delays can significantly impact rescue operations and resource distribution. Our objective was to design a platform capable of maintaining communication and providing intelligent assistance even when conventional networks fail.</p>
@@ -87,7 +87,7 @@ const BLOG_POSTS = [
       <p style="text-align: justify;">We also designed a user-friendly interface for both web and mobile platforms. The prototype demonstrates role-based dashboards, interactive disaster maps, emergency alerts, rescue coordination, shelter navigation, and resource tracking. The design emphasizes accessibility and ease of use during high-pressure emergency situations.</p>
       <figure>
         <img src="assets/blog_images/5.png" alt="Prototype">
-        <figcaption>Prototype designs and user interface layouts demonstrating the ResQ web and mobile application.</figcaption>
+        <figcaption>Prototype designs and user interface layouts.</figcaption>
       </figure>
       <h3>Challenges and Learning</h3>
       <p style="text-align: justify;">Developing ResQ required addressing several real-world challenges, including unreliable communication networks, disaster prediction, secure data handling, resource optimization, and system scalability. Designing solutions for these challenges strengthened our understanding of system architecture, backend development, cloud technologies, and machine learning while highlighting the importance of teamwork and problem-solving.</p>
