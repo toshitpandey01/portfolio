@@ -99,9 +99,6 @@ button { cursor: none; font: inherit; background: none; border: none; color: inh
   border-radius: 50%;
   pointer-events: none; z-index: 9998;
   transform: translate3d(-50%,-50%,0);
-  /* transform is NOT transitioned here — the JS lerp already smooths it
-     every frame, and adding a CSS ease on top of that made the ring feel
-     laggy/rubber-bandy as it chased the pointer. */
   transition: width .2s, height .2s, border-color .2s;
   will-change: transform;
 }
@@ -256,7 +253,18 @@ section {
 #typewriter::after { content: '|'; animation: blink .7s infinite; margin-left: 2px; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-.hero-desc { color: var(--text); max-width: 52ch; line-height: 1.75; margin-bottom: 2rem; text-align: justify; }
+.hero-desc {
+  color: var(--text);
+  max-width: 52ch;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 
 .hero-btns { display: flex; gap: .75rem; flex-wrap: wrap; }
 .btn-primary {
@@ -321,7 +329,17 @@ section {
 #about { background: linear-gradient(180deg, transparent, rgba(124,58,237,0.03), transparent); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 .about-text { min-width: 0; }
-.about-text p { color: var(--text); line-height: 1.8; margin-bottom: 1rem; text-align: justify; }
+.about-text p {
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 .about-text p:last-child { margin-bottom: 0; }
 
 .about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -525,7 +543,6 @@ footer {
 @media (max-width: 960px) {
   .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
   .hero-visual { max-width: 340px; order: -1; }
-  .hero-left { text-align: left; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .skills-layout { grid-template-columns: 1fr; gap: 3rem; }
   .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
