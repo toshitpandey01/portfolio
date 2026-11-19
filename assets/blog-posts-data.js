@@ -1,3 +1,4 @@
+
 const BLOG_POSTS = [
   {
     id: "magic-gamma-classification",
@@ -118,6 +119,49 @@ const BLOG_POSTS = [
       </figure>
       <p style="text-align: justify;">Throughout the program, I explored key areas including telecommunication networks, switching systems, optical fiber communication (OFC), broadband infrastructure, and mobile communication technologies. I also developed a better understanding of network architecture, communication protocols, and the essential role networking technologies play in delivering reliable connectivity.</p>
       <p style="text-align: justify;">One of the most valuable aspects of the training was observing real-world telecom operations, from infrastructure deployment to network maintenance and service management. This experience strengthened my interest in computer networks and provided practical knowledge that complements my academic studies while giving me a deeper appreciation of the technologies that power modern communication.</p>
+    `
+  },
+  {
+    id: "Building-FormatX",
+    title: "FormatX",
+    filename: "Building-FormatX.md",
+    date: "2026-11-19",
+    tags: ["documents", "document conversion", "Flask", "OCR"],
+    excerpt: "FormatX is a document workshop that runs on your own computer. Convert, merge, split, compress and preview PDFs, Word, Excel, PowerPoint and image files, including PDF to Word with OCR for scans, without uploading anything to a third party.",
+    content: `
+      <h3>Building FormatX</h3>
+      <p style="text-align: justify;">Sooner or later everyone needs to convert, merge or shrink a document, and most of us end up on a website that asks us to upload private files to a server we know nothing about. FormatX is my answer to that problem. It is a document workshop that runs entirely on your own computer, so reports, certificates and personal papers stay exactly where they belong.</p>
+      <figure>
+        <img src="assets/blog_images/FormatX.jpg" alt="FormatX home page">
+        <figcaption>The FormatX home page</figcaption>
+      </figure>
+
+      <h3>What it can do</h3>
+      <p style="text-align: justify;">I wanted one place for the everyday document jobs, so FormatX brings several tools together:</p>
+      <ul>
+        <li>Convert Word, Excel, PowerPoint, HTML, text and image files to PDF, and turn PDFs into Word, Excel or images.</li>
+        <li>Rebuild a PDF as an editable Word file, with OCR for scanned pages.</li>
+        <li>Merge up to 12 PDFs, or up to 12 Word files, into one document.</li>
+        <li>Split a PDF or extract only the pages you need, such as pages 1, 3 and 5 to 8.</li>
+        <li>Reorder, repeat, rotate and stamp PDF pages.</li>
+        <li>Compress PDFs and Office files, and preview any page before processing it.</li>
+      </ul>
+
+      <h3>How it is built</h3>
+      <p style="text-align: justify;">The backend is written in Python with Flask, and the frontend is plain HTML, CSS and JavaScript with no external fonts, images or CDNs. The colour theme comes from five warm tones: olive, blue, peach, tan and cream. The heavy lifting is shared between proven engines. LibreOffice turns Word, Excel and PowerPoint files into PDFs, PyMuPDF handles rendering, merging, splitting and compression, pdf2docx rebuilds PDFs as Word files, Tesseract reads scanned pages, WeasyPrint renders HTML, and a small Java program extracts plain text from Word documents.</p>
+      <p style="text-align: justify;">Privacy shaped the design from the start. Every request is processed in its own temporary folder that is removed afterwards, downloads are never cached, and there are no accounts and no document history. Nothing is sent to an outside service.</p>
+
+      <h3>The bug that taught me the most</h3>
+      <p style="text-align: justify;">The most interesting problem appeared when I converted a project report cover page from PDF to Word. The original had an ornate border, decorative corners and a college logo. In Word, the result showed only a plain thick frame. The ornaments and the logo had vanished.</p>
+      <p style="text-align: justify;">At first I assumed the converter had dropped them, but they were all inside the file. The real cause was stacking order. The converter placed every floating picture with the same layer value, and it turned the border into one large picture with a white middle. LibreOffice happened to draw the small pictures on top of it, so the page looked fine there. Word drew the large border last, and it covered the ornaments and the logo.</p>
+      <p style="text-align: justify;">The fix has two parts. First, every floating picture now gets its own stacking order, with the largest at the back. Second, for pages that have decorative borders or logos, FormatX renders all of the non text artwork as a single background image placed behind the text. The text stays fully editable, and the artwork can no longer hide itself or get lost on the way.</p>
+      <p style="text-align: justify;">The lesson was simple. A conversion can look perfect in one program and broken in another, so it is worth testing with real documents and in the program people will actually open them in.</p>
+
+      <h3>Being honest about the limits</h3>
+      <p style="text-align: justify;">FormatX rebuilds layouts rather than copying them exactly, so converted files deserve a quick review. PDF to Excel works on tables that have ruling lines and selectable text, and scanned pages need the OCR option. There are also sensible limits on page counts and file sizes to keep the app responsive on a personal computer. I preferred to state these limits clearly in the app and in the documentation instead of promising perfect results.</p>
+
+      <h3>What I learned and what comes next</h3>
+      <p style="text-align: justify;">This project taught me how many separate tools sit behind a simple "convert" button, and how much careful checking it takes to make them behave together. I also learned to treat privacy as a feature, and to write automated tests for the bugs I find so that they stay fixed. Next, I would like to clean up font names in converted Word files, add more OCR languages and publish a short demo showing the tools in action.</p>
     `
   }
 ];

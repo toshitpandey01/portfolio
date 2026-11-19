@@ -429,6 +429,9 @@
         }));
       } else if (kind === 'wave') {
         points = null;
+      } else if (kind === 'docs') {
+        // FormatX: five "pages" spaced evenly along the loop
+        points = Array.from({ length: 5 }, (_, i) => ({ off: i / 5 }));
       }
     }
 
@@ -482,6 +485,30 @@
         ctx.beginPath();
         ctx.arc(sx, h * 0.3, 3, 0, Math.PI * 2);
         ctx.fill();
+      } else if (kind === 'docs') {
+        // Converter box in the centre
+        const bw = 34, bh = 44;
+        ctx.strokeStyle = 'rgba(6,182,212,0.5)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 3]);
+        ctx.strokeRect(w / 2 - bw / 2, h / 2 - bh / 2, bw, bh);
+        ctx.setLineDash([]);
+
+        // Pages slide left to right and change colour after passing the box
+        for (const d of points) {
+          const p = (t * 0.00012 + d.off) % 1;
+          const x = p * (w + 40) - 20;
+          const y = h / 2 + Math.sin(p * Math.PI * 2) * 6;
+          ctx.globalAlpha = 0.85;
+          ctx.fillStyle = x > w / 2 ? '#06b6d4' : '#7c3aed';
+          ctx.fillRect(x - 7, y - 9, 14, 18);
+          // text lines on the page
+          ctx.fillStyle = 'rgba(2,8,23,0.6)';
+          ctx.fillRect(x - 4, y - 5, 8, 1.5);
+          ctx.fillRect(x - 4, y - 1, 8, 1.5);
+          ctx.fillRect(x - 4, y + 3, 5, 1.5);
+        }
+        ctx.globalAlpha = 1;
       }
 
       requestAnimationFrame(draw);
@@ -509,6 +536,7 @@
   }
   projVis('vis-stress',  'scatter');
   projVis('vis-weather', 'wave');
+  projVis('vis-FormatX', 'docs');
 
   /* ── Skill graph (radial neural viz) ─────────────── */
   (function skillGraph() {
